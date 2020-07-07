@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MapFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rl_mainlayout"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginStart="@dimen/dp9"
+            android:layout_marginLeft="@dimen/dp9"
+            android:layout_marginTop="@dimen/dp27"
+            android:layout_marginEnd="@dimen/dp9"
+            android:layout_marginRight="@dimen/dp9"
+            android:background="@android:color/transparent"
+            android:elevation="@dimen/dp5"
+            android:orientation="horizontal"
+            app:cardElevation="@dimen/dp5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:gravity="center_vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_openDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp18"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dp16"
+                        android:src="@drawable/ic_list_menu"
+                        android:tint="@color/waver_text" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_channel_header_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="@dimen/dp16"
+                        android:alpha="0.5"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:lines="1"
+                        android:text="Search Map"
+                        android:textColor="@color/waver_text"
+                        android:textSize="@dimen/dp16" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_dialog_searchbar"
+                        android:layout_width="@dimen/dp22"
+                        android:layout_height="@dimen/dp22"
+                        android:layout_marginLeft="@dimen/dp18"
+                        android:layout_marginRight="@dimen/dp8"
+                        android:src="@drawable/ic_more"
+                        android:tint="@color/md_grey_500" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="@dimen/dp0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            mapbox:mapbox_cameraZoom="15" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fl_msg_loc_anchor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:translationZ="95dp"
+            app:behavior_peekHeight="145dp"
+            android:paddingTop="90dp"
+            android:visibility="visible"
+            android:contextClickable="false"
+            app:layout_behavior="com.hardsoftstudio.widget.AnchorSheetBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:background="@color/colorWhite"
+                android:elevation="2sp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                app:layout_anchor="@id/fl_msg_loc_anchor">
+
+                <LinearLayout
+                    android:id="@+id/ll_locationMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_map_pin_light_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LOCATIONS"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:id="@+id/view_locationUnderLine"
+                        android:layout_width="50dp"
+                        android:layout_height="3dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimaryDark">
+
+                    </View>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_messagesMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="26dp"
+
+                    android:alpha="0.5"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_message_blue" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MESSAGES"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:id="@+id/view_messageunderLine"
+                        android:layout_width="50dp"
+                        android:layout_height="3dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimaryDark"
+                        android:visibility="gone">
+
+                    </View>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="53dp"
+                android:orientation="vertical"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:splitMotionEvents="false"
+                        android:layout_height="match_parent">
+
+                        <!-- Footer slide listing  -->
+                        <RelativeLayout
+                            android:id="@+id/rl_locationMain"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorBackgroundSearch">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10sp"
+                                android:background="@color/colorBackgroundSearch"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:gravity="center"
+                                    android:text="There are no posts for you."
+                                    android:textSize="17sp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/tv_back_to_map_location"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:gravity="center"
+                                    android:text="Back to map"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/colorSecondaryLightBlue"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10sp"
+                                android:visibility="gone"></ProgressBar>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scrollbars="vertical"
+                                android:visibility="gone" />
+
+                        </RelativeLayout><!--onClick ic_location-->
+
+                        <RelativeLayout
+                            android:id="@+id/rl_messagesMain"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="visible"
+                            android:background="@color/colorBackgroundSearch">
+
+                            <!-- <ScrollView
+                                 android:layout_width="match_parent"
+                                 android:fillViewport="true"
+                                 android:clickable="true"
+                                 android:layout_height="match_parent">-->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:clickable="true"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10sp"
+                                    android:background="@color/colorBackgroundSearch"
+                                    android:orientation="vertical"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_marginRight="20dp"
+                                        android:gravity="center"
+                                        android:text="There are no direct messages for you."
+                                        android:textSize="17sp" />
+
+                                </LinearLayout>
+
+                                <ProgressBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10sp"
+                                    android:visibility="gone"></ProgressBar>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/cv_unread"
+                                    app:cardCornerRadius="1dp"
+                                    android:elevation="5dp"
+                                    android:padding="4dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:textSize="12dp"
+                                        android:gravity="center_vertical"
+                                        android:layout_marginLeft="20dp"
+                                        android:textColor="@color/colorBlack"
+                                        android:layout_height="40dp"
+                                        android:text="@string/unread"/>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:layout_below="@+id/cv_unread"
+                                    android:id="@+id/rv_unreadchat"
+                                    android:layout_height="200dp"
+                                    android:clickable="true"
+                                    android:visibility="visible" />
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/cv_read"
+                                    app:cardCornerRadius="1dp"
+                                    android:elevation="5dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_below="@+id/rv_unreadchat"
+                                    android:layout_height="wrap_content"
+                                    >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:textSize="12dp"
+                                        android:gravity="center_vertical"
+                                        android:layout_marginLeft="20dp"
+                                        android:textColor="@color/colorBlack"
+                                        android:visibility="visible"
+                                        android:text="@string/more"/>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:layout_below="@+id/cv_read"
+                                    android:id="@+id/rv_readchat"
+                                    android:layout_height="wrap_content"
+                                    android:clickable="true"
+                                    android:visibility="visible" />
+
+                            </RelativeLayout>
+
+                            <!--  </ScrollView>-->
+
+
+
+                        </RelativeLayout>
+
+                    </FrameLayout>
+                    <!--Manage of ic_location list and message list of footer sliding listing -->
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_profileanchor_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:translationZ="90dp"
+            android:visibility="gone"
+            app:layout_behavior="com.hardsoftstudio.widget.AnchorSheetBehavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/image_view_bottom_sheet"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/shape_light_green_circle" />
+
+                        <LinearLayout
+                            android:id="@+id/avalable_profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Set Avalability" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Available"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/snooze_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_snooze_blue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="Snooze"
+                            android:textColor="#000"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--profile footer add availability and snooze-->
+
+                <RelativeLayout
+                    android:id="@+id/image_view_bottom_sheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#80000000">
+
+                    <ImageView
+                        android:id="@+id/bottom_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_pattern5" />
+
+                    <!--this must be removed but removing affects the code-->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#80000000">
+
+                        <TextView
+                            android:id="@+id/bottom_sheet_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginBottom="20dp"
+                            android:text="Pooja"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/bottom_sheet_user_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/bottom_sheet_user_name"
+                            android:layout_marginLeft="16dp"
+                            android:text="pooja29193"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/iv_channel_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shape_white_circle"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_man_user"
+            android:tint="@color/colorPrimary"
+            app:layout_anchorGravity="right" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:layout_anchorGravity="right|top|end">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_center_map_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="130dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_nav_center"
+                android:tint="@color/colorSecondaryLightBlue"
+                app:backgroundTint="@color/colorWhite"
+                app:fabCustomSize="45dp"
+                app:fabSize="mini"
+                app:fab_size="mini"
+                app:maxImageSize="40dp" />
+
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/floating_action_menu"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent"
+                android:paddingRight="10dp"
+                android:paddingBottom="60dp"
+                app:behavior_hideable="true"
+                app:layout_anchorGravity="right"
+                app:menu_backgroundColor="#80000000"
+                app:menu_colorNormal="@color/colorSecondaryLightBlue"
+                app:menu_fab_label="Set location"
+                android:clickable="true"
+                app:menu_colorRipple="#80000000"
+                app:menu_labels_style="@style/MenuLabelsStyle">
+
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_message_button"
+                    style="@style/MenuButtonsStyle"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/ic_message_blue_24"
+                    app:fab_label="Send a Direct Message" />
+
+
+            </com.github.clans.fab.FloatingActionMenu>
+
+
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorWhite"
+        android:fitsSystemWindows="true"
+        android:nestedScrollingEnabled="false"
+        android:overScrollMode="never"
+        app:headerLayout="@layout/nav_header_main"
+        app:itemIconTint="@color/colorBlack"
+        app:itemTextColor="@color/colorBlack"
+        android:animateLayoutChanges="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_half_Navilayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            tools:layout_editor_absoluteY="@dimen/dp220">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:src="@drawable/ic_rounded_add"
+                android:tint="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp4"
+                android:layout_marginBottom="@dimen/dp45"
+                android:background="@drawable/shape_dropshadow_reverse"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rv_listOfMap" />
+
+
+            <TextView
+                android:id="@+id/tv_add_map"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginEnd="@dimen/dp8"
+                android:layout_marginBottom="@dimen/dp5"
+                android:gravity="center_vertical"
+                android:text="ADD A MAP"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_listOfMap"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="@dimen/dp0"
+                android:layout_marginTop="220dp"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:context="com.google.samples.apps.sunflower.GardenActivity" />
+
+
+            <!--Add map layout-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout> <!--navigatio 80% layout-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_navi_full_Activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:layout_editor_absoluteY="@dimen/dp220">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/ll_navi_changename"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp75"
+                    android:layout_below="@+id/header"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:src="@drawable/ic_person_blue" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight=".5"
+                        android:text="Change your name"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dp14"
+                        android:typeface="serif" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4"
+                        android:gravity="right"
+                        android:text="name"
+                        android:textColor="@color/half_black"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:background="@color/colorGrey" />
+
+                <LinearLayout
+                    android:id="@+id/ll_navi_changeusername"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp75"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:src="@drawable/ic_track_changes" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight=".5"
+                        android:text="Change Username"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dp14"
+                        android:typeface="serif" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4"
+                        android:gravity="right"
+                        android:text="name"
+                        android:textColor="@color/half_black"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:background="@color/colorGrey" />
+
+                <LinearLayout
+                    android:id="@+id/ll_navi_changeEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp75"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:src="@drawable/ic_email"
+                        android:tint="@color/clientBlue" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight=".5"
+                        android:text="Change your Email"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dp14"
+                        android:typeface="serif" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4"
+                        android:gravity="right"
+                        android:text="Eml@gmail.com"
+                        android:textColor="@color/half_black"
+                        android:typeface="serif" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:background="@color/colorGrey" />
+
+                <LinearLayout
+                    android:id="@+id/ll_navi_changePass"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp75"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:src="@drawable/ic_security" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight=".9"
+                        android:text="Change your Password"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dp14"
+                        android:typeface="serif" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:background="@color/colorGrey" />
+
+                <LinearLayout
+                    android:id="@+id/ll_navi_signOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp80"
+                    android:layout_marginBottom="@dimen/dp35"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:src="@drawable/ic_power_settings" />
+
+                    <TextView
+                        android:layout_width="@dimen/dp0"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight=".9"
+                        android:text="SignOut"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dp14"
+                        android:typeface="serif" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout><!--listing-->
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="@dimen/dp0"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:minHeight="@dimen/dp40"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_weight=".1"
+                    android:src="@drawable/ic_error" />
+
+                <TextView
+                    android:layout_width="@dimen/dp0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_weight=".9"
+                    android:text="Contact Support"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dp14"
+                    android:typeface="serif" />
+
+
+            </LinearLayout><!--contact us-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout><!--navigation 100% layout-->
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

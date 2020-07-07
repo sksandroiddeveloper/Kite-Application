@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".fragments.SendDirectMessageFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/pm_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp55"
+                android:background="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/iv_close_button"
+                    android:layout_width="@dimen/dp45"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:padding="@dimen/dp10"
+                    android:src="@drawable/ic_cross"
+                    android:tint="@color/waver_text"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Direct message"
+                    android:textColor="@color/waver_text"
+                    android:textSize="@dimen/dp16"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/start_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dp16"
+                    android:gravity="center_vertical"
+                    android:text="Start"
+                    android:textColor="@color/waver_text"
+                    android:textSize="@dimen/dp16"
+                    android:textStyle="bold"
+                    android:alpha="0.8"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/dropshadow"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp4"
+                android:background="@color/colorGrey"
+                android:layout_below="@+id/pm_header"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/dropshadow"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="No Members Available"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

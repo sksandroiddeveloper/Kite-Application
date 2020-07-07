@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.AddMapFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <!--common header-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp250"
+                android:background="@color/colorSecondaryLightBlue"
+                android:padding="@dimen/dp10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+
+                    android:id="@+id/iv_back"
+                    android:layout_width="@dimen/dp50"
+                    android:layout_height="@dimen/dp50"
+                    android:layout_marginTop="5dp"
+                    android:padding="@dimen/dp10"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_searchInMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:gravity="bottom"
+                    android:text="@string/Find"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dp15"
+                    android:textStyle="bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_headerLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:text="@string/Addmap"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dp25"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_addMap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp20"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btn_next"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="@dimen/dp34"
+                    android:layout_marginTop="@dimen/dp52"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:background="@color/colorSecondaryLightBlue"
+                    android:text="@string/Next"
+                    android:textColor="@color/colorBackgroundWhite"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginEnd="11dp"
+                    android:backgroundTint="#FF000000"
+                    android:src="@drawable/ic_map_black_24dp"
+                    android:tint="@color/waver_text"
+                    app:layout_constraintEnd_toStartOf="@+id/textInputLayout7"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:spinnerMode="dialog"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tv_validation_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp32"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/invalid_password"
+                    android:textColor="@color/colorRed"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+                <TextView
+                    android:id="@+id/tv_onboarding_tap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp32"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/tap_to_type"
+                    android:textColor="@color/hintColor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:hint="@string/WhatstheMapname"
+                    android:textColor="@color/waver_text"
+                    android:textColorHint="@color/hintColor"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout.Login"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:id="@+id/et_map_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp50"
+                        android:background="@android:color/transparent"
+                        android:singleLine="true"
+                        android:textColor="@color/waver_text"
+                        android:textColorHint="@color/hintColor" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/waver_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout> <!--rl_addMap name-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_addMapPurpose"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp20"
+                android:visibility="gone">
+
+
+                <Button
+                    android:id="@+id/btn_nextMapPurpose"
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="@dimen/dp34"
+                    android:layout_marginTop="@dimen/dp52"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:background="@color/colorSecondaryLightBlue"
+                    android:text="@string/Next"
+                    android:textColor="@color/colorBackgroundWhite"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginEnd="11dp"
+                    android:backgroundTint="#FF000000"
+                    android:src="@drawable/ic_map_black_24dp"
+                    android:tint="@color/waver_text"
+                    app:layout_constraintEnd_toStartOf="@+id/textInputLayout8"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:spinnerMode="dialog"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/validation_errorMapPurpose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp32"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/invalid_password"
+                    android:textColor="@color/colorRed"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+
+                <TextView
+                    android:id="@+id/btn_Skip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="@dimen/dp32"
+                    android:layout_marginTop="@dimen/dp52"
+                    android:gravity="center"
+                    android:text="@string/SKIP"
+                    android:textColor="@color/colorBlack"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+
+                <TextView
+                    android:id="@+id/tv_onboarding_tap_MapPurpose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp32"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="@string/tap_to_type"
+                    android:textColor="@color/hintColor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:hint="@string/Describethepurposeofthismap"
+                    android:textColor="@color/waver_text"
+                    android:textColorHint="@color/hintColor"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout.Login"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:id="@+id/et_map_purpose"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp50"
+                        android:background="@android:color/transparent"
+                        android:singleLine="true"
+                        android:textColor="@color/waver_text"
+                        android:textColorHint="@color/hintColor" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/waver_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout> <!--addMapPurpose name-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

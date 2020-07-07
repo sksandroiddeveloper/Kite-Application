@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#08b8ff</color>
+    <color name="clientBlue">#08b8ff</color>
+    <color name="colorAccent">#08b8ff</color>
+    <color name="colorSecondaryLightBlue">#08b8ff</color>
+    <color name="colorDarkBlue">#152251</color>
+
+    <color name="colorPrimaryDark">#0D1A38</color>
+    <color name="colorBlack">#000000</color>
+    <color name="waver_text">#212121</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="mapboxWhite">#FFFFFF</color>
+    <color name="colorBackgroundWhite">#FDFDFB</color>
+    <color name="colorBackgroundSearch">#EEEEEE</color>
+    <color name="colorGrey">#C5C5C5</color>
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="half_black">#808080</color>
+    <color name="hintColor">#80000000</color>
+
+    <color name="settingIconColor">#009c8a</color>
+    <color name="waver_green">#4CAF50</color>
+    <color name="mapboxGray">#607d9c</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="communication_background_color">#fafafa</color>
+    <color name="audio_widget_background_color">#eceff0</color>
+    <color name="Transparent">#09000000</color>
+
+
+    <color name="darkBlue">#2196F3</color>
+</resources>

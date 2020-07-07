@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/use_satellite"
+        android:icon="@drawable/ic_use_satellite"
+        android:title="Use Satellite"
+        android:visible="true" />
+    <item
+        android:id="@+id/view_members"
+        android:icon="@drawable/ic_view_members"
+        android:title="View Members"
+        android:visible="true" />
+    <item
+        android:icon="@drawable/ic_invite_team"
+        android:title="Invite Team"
+        android:visible="true" />
+    <item
+        android:icon="@drawable/ic_invite_guest"
+        android:title="Invite Guests"
+
+        android:visible="true" />
+    <item
+        android:icon="@drawable/ic_get_locations"
+        android:title="Get Locations"
+        android:visible="true" />
+    <item
+        android:icon="@drawable/ic_setings"
+        android:title="Settings"
+        android:visible="true" />
+</menu>
